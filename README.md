@@ -14,7 +14,7 @@ Ballerina IDE plugins (IntelliJ IDEA and VSCode)
 Obtain credetials and tokens for both Google Sheets, Gmail,Twilio APIs.
 
 ballerina.conf configuration file should be created with the above obtained tokens, credentials and other important parameters as follows.
-
+```
 ACCESS_TOKEN="access token"
 CLIENT_ID="client id"
 CLIENT_SECRET="client secret"
@@ -25,7 +25,7 @@ SENDER="email address of the sender"
 USER_ID="mail address of the authorized user. You can give this value as, me"
 AUTHTOKEN="token received from the twilio"
 ACCOUNTSID="ID received from the twilio"
-
+```
 Developing the application
 Ballerina connectors have to be created
 Google Sheets client endpoint can be created as follows
@@ -42,6 +42,7 @@ endpoint gsheets4:Client spreadsheetClient {
 };
 ```
 Gmail client endpoint can be created as follows
+```
 endpoint gmail:Client gmailClient {
     clientConfig:{
         auth:{
@@ -52,13 +53,16 @@ endpoint gmail:Client gmailClient {
         }   
     }
 };
+```
 
 Twilio client can be created as follows
+```
 endpoint twilio:Client twilioEP {
     accountSId:accountSID,
     authToken:authToken
 
 };
+```
 
 
 
