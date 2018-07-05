@@ -26,24 +26,9 @@ USER_ID="mail address of the authorized user. You can give this value as, me"
 AUTHTOKEN="token received from the twilio"
 ACCOUNTSID="ID received from the twilio"
 
-
-Create a Google Sheet as follows from the same Google account you have obtained the client credentials and tokens to access both APIs.
-
-Obtain the spreadsheet id by extracting the value between the "/d/" and the "/edit" in the URL of your spreadsheet. 
-Optional Requirements
-Ballerina IDE plugins (IntelliJ IDEA, VSCode, Atom) 
-Implementation
-Create the package structure
-Ballerina is a complete programming language that can have any custom project structure as you wish. Although the language allows you to have any package structure, use the following simple package structure for this project.
-gmail-spreadsheet-integration
-  ├── ballerina.conf  
-  └── notification-sender
-      └── tests
-          └── notification_sender_test.bal
-      └── notification_sender.bal
 Developing the application
-Let's see how both of these Ballerina connectors can be used for this sample use case.
-First let's look at how to create the Google Sheets client endpoint as follows.
+Ballerina connectors have to be created
+Google Sheets client endpoint can be created as follows
 endpoint gsheets4:Client spreadsheetClient {
     clientConfig:{
         auth:{
@@ -54,7 +39,7 @@ endpoint gsheets4:Client spreadsheetClient {
         }
     }
 };
-Next, let's look at how to create the Gmail client endpoint as follows.
+Gmail client endpoint can be created as follows
 endpoint gmail:Client gmailClient {
     clientConfig:{
         auth:{
@@ -65,6 +50,18 @@ endpoint gmail:Client gmailClient {
         }   
     }
 };
+
+Twilio client can be created as follows
+endpoint twilio:Client twilioEP {
+    accountSId:accountSID,
+    authToken:authToken
+
+};
+
+
+
+
+
 Note that, in the implementation, each of the above endpoint configuration parameters are read from the ballerina.conf file.
 After creating the endpoints, let's implement the API calls inside the functions getCustomerDetailsFromGSheet and sendMail.
 Let's look at how to get the sheet data about customer product downloads as follows.
