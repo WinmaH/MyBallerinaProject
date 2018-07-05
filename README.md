@@ -1,6 +1,6 @@
 # Customer Request Approval/Rejection with Ballerina,Google Sheets,Gmail and Twilio
 
-Google Sheets is an online spread sheet which can be used to manupilate data. Gmail and Twilio provides API for sending e-mail and sms.
+Google Sheets is an online spread sheet which can be used to manupilate data. Gmail and Twilio provides API for sending e-mail and text messages respectively.
 This guides helps to integarate ballerina with Google sheets , Gmail and Twilio to manage customers' request approvals or rejections.
 
 Let us consider a real world scenario of customers requesting loans from the banks.Let's suppose that the user request details are initially send to a Google Sheet.When the requests are approved or rejected the request data are sent to seperate Google Sheets. Then a notification is sent to the customer using an e-mail or an sms according to his preference.
@@ -9,17 +9,12 @@ Ballerina Spreadsheet connector can be used to retrieve and write data from and 
 
 Prerequisites
 Ballerina Distribution
-Ballerina IDE plugins (IntelliJ IDEA and VSCode
-Go through the following steps to obtain credetials and tokens for both Google Sheets and Gmail APIs.
-1. Visit Google API Console, click Create Project, and follow the wizard to create a new project. 
-2. Enable both Gmail and Google Sheets APIs for the project. 
-3. Go to Credentials -> OAuth consent screen, enter a product name to be shown to users, and click Save. 
-4. On the Credentials tab, click Create credentials and select OAuth client ID. 
-5. Select an application type, enter a name for the application, and specify a redirect URI (enter https://developers.google.com/oauthplayground if you want to use OAuth 2.0 playground to receive the authorization code and obtain the access token and refresh token). 
-6. Click Create. Your client ID and client secret appear. 
-7. In a separate browser window or tab, visit OAuth 2.0 playground, select the required Gmail and Google Sheets API scopes, and then click Authorize APIs. 
-8. When you receive your authorization code, click Exchange authorization code for tokens to obtain the refresh token and access token. 
-You must configure the ballerina.conf configuration file with the above obtained tokens, credentials and other important parameters as follows.
+Ballerina IDE plugins (IntelliJ IDEA and VSCode)
+
+Obtain credetials and tokens for both Google Sheets, Gmail,Twilio APIs.
+
+ballerina.conf configuration file should be created with the above obtained tokens, credentials and other important parameters as follows.
+
 ACCESS_TOKEN="access token"
 CLIENT_ID="client id"
 CLIENT_SECRET="client secret"
@@ -28,6 +23,10 @@ SPREADSHEET_ID="spreadsheet id you have extracted from the sheet url"
 SHEET_NAME="sheet name of your Goolgle Sheet. For example in above example, SHEET_NAME="Stats"
 SENDER="email address of the sender"
 USER_ID="mail address of the authorized user. You can give this value as, me"
+AUTHTOKEN="token received from the twilio"
+ACCOUNTSID="ID received from the twilio"
+
+
 Create a Google Sheet as follows from the same Google account you have obtained the client credentials and tokens to access both APIs.
 
 Obtain the spreadsheet id by extracting the value between the "/d/" and the "/edit" in the URL of your spreadsheet. 
