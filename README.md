@@ -27,7 +27,9 @@ AUTHTOKEN="token received from the twilio"
 ACCOUNTSID="ID received from the twilio"
 ```
 Developing the application
+
 Ballerina connectors have to be created
+
 Google Sheets client endpoint can be created as follows
 ```
 endpoint gsheets4:Client spreadsheetClient {
@@ -63,9 +65,9 @@ endpoint twilio:Client twilioEP {
 
 };
 ```
+approve.bal file in this github repository provides details on how to access the Google Sheet to retrieve and write data, how to acess the Gmail to send a customized e-mail and how to access Twilio to send customized text messages.   
 
-
-To run the unit test, go to the sample root directory and run the following command.
-$ ballerina test notification-sender
+To run the project go to the project MyBallerinaProject and run the following command.
+$ ballerina run approve.bal
 
 
