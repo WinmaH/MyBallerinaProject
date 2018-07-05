@@ -2,23 +2,11 @@
 
 Google Sheets is an online spread sheet which can be used to manupilate data. Gmail and Twilio provides API for sending e-mail and sms.
 This guides helps to integarate ballerina with Google sheets , Gmail and Twilio to manage customers' request approvals or rejections.
-The following are the sections available in this guide.
-What you'll build 
-Prerequisites 
-Implementation 
-Testing 
-Deployment 
-What you’ll build
-To understand how you can use Ballerina API connectors, in this sample we use Spreadsheet connector to get data from a Google Sheet and send those data in an email using Gmail connector.
-Let us consider a real world use case scenario of a software product company. When a customer downloads the product from the company website, providing the name and email address, the company sends a customized email to the customer’s mailbox saying,
-    Hi <CustomerName>
-    
-    Thank you for downloading the product <ProductName>!
 
-    If you still have questions regarding <ProductName>, please contact us and we will get in touch with you right away!                                        
-The product name, customer name and email address are added to the first, second and third columns of a Google Sheet.
-
+Let us consider a real world scenario of customers requesting loans from the banks.Let's suppose that the user request details are initially send to a Google Sheet.When the requests are approved or rejected the request data are sent to seperate Google Sheets. Then a notification is sent to the customer using an e-mail or an sms according to his preference.
 You can use the Ballerina Google Spreadsheet connector to read the spreadsheet, iterate through the rows and pick up the product name, email address and name of each customer from the columns. Then, you can use the Gmail connector to simply add the name to the body of a html mail template and send the email to the relevant customer.
+Ballerina Spreadsheet connector can be used to retrieve and write data from and to the Google Sheet.Gmail connector can be used to send e-mails to the customer.Twilio Connector can be used to send sms.
+
 Prerequisites
 Ballerina Distribution
 Ballerina IDE plugins (IntelliJ IDEA and VSCode
