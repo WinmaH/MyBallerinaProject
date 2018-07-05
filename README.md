@@ -29,6 +29,7 @@ ACCOUNTSID="ID received from the twilio"
 Developing the application
 Ballerina connectors have to be created
 Google Sheets client endpoint can be created as follows
+```
 endpoint gsheets4:Client spreadsheetClient {
     clientConfig:{
         auth:{
@@ -39,6 +40,7 @@ endpoint gsheets4:Client spreadsheetClient {
         }
     }
 };
+```
 Gmail client endpoint can be created as follows
 endpoint gmail:Client gmailClient {
     clientConfig:{
