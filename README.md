@@ -1,7 +1,7 @@
-# Customer Request Approval with Ballerina,Google Sheets,Gmail and Twilio
+# Customer Request Approval/Rejection with Ballerina,Google Sheets,Gmail and Twilio
 
-Google Sheets is an online spreadsheet that lets users create and format spreadsheets and simultaneously work with other people. Gmail is a free, web-based e-mail service provided by Google.
-This guide walks you through the process of using Google Sheets and Gmail using Ballerina language.
+Google Sheets is an online spread sheet which can be used to manupilate data. Gmail and Twilio provides API for sending e-mail and sms.
+This guides helps to integarate ballerina with Google sheets , Gmail and Twilio to manage customers' request approvals or rejections.
 The following are the sections available in this guide.
 What you'll build 
 Prerequisites 
