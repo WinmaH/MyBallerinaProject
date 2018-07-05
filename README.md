@@ -5,8 +5,11 @@ This guides helps to integarate ballerina with Google sheets , Gmail and Twilio 
 
 Let us consider a real world scenario of customers requesting loans from the banks.Let's suppose that the user request details are initially send to a Google Sheet.When the requests are approved or rejected the request data are sent to seperate Google Sheets. Then a notification is sent to the customer using an e-mail or an sms according to his preference.
 You can use the Ballerina Google Spreadsheet connector to read the spreadsheet, iterate through the rows and pick up the product name, email address and name of each customer from the columns. Then, you can use the Gmail connector to simply add the name to the body of a html mail template and send the email to the relevant customer.
-Ballerina Spreadsheet connector can be used to retrieve and write data from and to the Google Sheet.Gmail connector can be used to send e-mails to the customer.Twilio Connector can be used to send sms
-**Prerequisites**
+Ballerina Spreadsheet connector can be used to retrieve and write data from and to the Google Sheet.Gmail connector can be used to send e-mails to the customer.Twilio Connector can be used to send text messages.
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
+**Prerequisites**.
 Ballerina Distribution
 Ballerina IDE plugins (IntelliJ IDEA or VSCode)
 
