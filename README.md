@@ -13,7 +13,7 @@ Ballerina Spreadsheet connector can be used to retrieve and write data from and 
 Ballerina Distribution
 Ballerina IDE plugins (IntelliJ IDEA or VSCode)
 
-Obtain credetials and tokens for both Google Sheets, Gmail,Twilio APIs..More Information on this can be retrived from [wso2/gsheets4](https://central.ballerina.io/wso2/gsheets4) and [wso2/twilio](https://central.ballerina.io/wso2/twilio).
+Obtain credetials and tokens for both Google Sheets, Gmail,Twilio APIs.More Information on this can be retrived from [wso2/gsheets4](https://central.ballerina.io/wso2/gsheets4) and [wso2/twilio](https://central.ballerina.io/wso2/twilio).
 
 
 ballerina.conf configuration file should be created with the above obtained tokens, credentials and other important parameters as follows.
@@ -31,9 +31,9 @@ ACCOUNTSID="ID received from the twilio"
 ```
 **Developing the application**
 
-Ballerina connectors have to be created
+Ballerina connectors have to be created.
 
-Google Sheets client endpoint can be created as follows
+Google Sheets client endpoint can be created as follows.
 ```
 endpoint gsheets4:Client spreadsheetClient {
     clientConfig:{
@@ -76,6 +76,7 @@ Sample Google sheet which has used in the code is included below.
 
 **Run the Project**
 To run the project go to the project MyBallerinaProject and run the following command.
+
 $ ballerina run approve.bal
 
 
