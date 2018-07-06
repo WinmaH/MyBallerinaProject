@@ -112,7 +112,7 @@ function trigger() {
                 }
 				//if the user prefers sms send an rejection notification via an sms
                 if(Mode=="SMS"){
-                    sms_content="Hi "+CustomerName+" ! "+"This sms is sento to you to verify that your loan request has got approed ! :-)  :-) Loan Number :"+LoanNumber;
+                    sms_content="Hi "+CustomerName+" ! "+"This sms is sent to you to verify that your loan request has got approved ! :-)  :-) "+"\n"+"sent by winma@wso2.com";
                     sendSMS("+"+CutomerMobile,sms_content);
                 }
                 time:Time time = time:currentTime();
@@ -123,7 +123,7 @@ function trigger() {
 			//if the requests are rejected user details are stored in the rejected sheet
             if(Accept=="R"){
                 rejected_count=rejected_count+1;
-                sms_content="Hi "+CustomerName+" ! "+"This sms is sent to you to verify that your loan request has got Rejected! Sorry for the Inconvenience. :-(  :-( Loan Number :"+LoanNumber;
+
 				//if the user prefers email send a rejection notification via nail
                 if(Mode=="Mail"){
                     subject = "Rejection of the Loan Request" + LoanNumber;
@@ -132,7 +132,7 @@ function trigger() {
                 }
 				//if the user prefers sms send a rejection notification via an sms
                 if(Mode=="SMS"){
-                    sms_content="Hi "+CustomerName+" ! "+"This sms is sento to you to verify that your loan request has got approed ! :-) Loan Number :"+LoanNumber;
+                    sms_content="Hi "+CustomerName+" ! "+"This sms is sent to you to verify that your loan request has got Rejected!:-(  :-( "+"\n"+"sent by winma@wso2.com";
                     sendSMS("+"+CutomerMobile,sms_content);
                 }
                 time:Time time = time:currentTime();
@@ -311,16 +311,22 @@ function createEmail(string CustomerName, string LoanNumber, string ApplyDate,st
 
 function sendMail(string customerEmail, string subject, string messageBody) {
     //Create html message
-    gmail:MessageRequest messageRequest;
-    messageRequest.recipient = customerEmail;
-    messageRequest.sender = senderEmail;
-    messageRequest.subject = subject;
-    messageRequest.messageBody = messageBody;
-    messageRequest.contentType = gmail:TEXT_HTML;
+    gmail:MessageRequest message_req;
+	//set the message recipient
+    message_req.recipient = customerEmail;
+	//set the message sender
+    message_req.sender = senderEmail;
+	//set the message subject
+    message_req.subject = subject;
+	//create the message subject
+    message_req.messageBody = messageBody;
+	//crate the email body using html format
+    message_req.contentType = gmail:TEXT_HTML;
     //Send mail
-    var sendMessageResponse = gmailClient->sendMessage(userId, untaint messageRequest);
+    var sendMessageResponse = gmailClient->sendMessage(userId, untaint message_req);
     string messageId;
     string threadId;
+
     match sendMessageResponse {
         (string, string) sendStatus => {
             (messageId, threadId) = sendStatus;
@@ -350,7 +356,7 @@ function writeOnTheSpreadSheet(string [][] new_values,int j,string sName){
 
 function sendSMS(string toMobile,string message){
 	//send sms usting twilio
-    string fromMobile="+12055798926";
+	string fromMobile=config:getAsString("MOBILENUMBER");
     var details = twilioEP->sendSms(fromMobile, toMobile, message);
     match details {
         twilio:SmsResponse smsResponse => io:println(smsResponse);
